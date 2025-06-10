@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Penetration Tester Roadmap</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -39,6 +39,7 @@
         }
         .checklist-item {
             transition: color 0.2s ease-in-out;
+            cursor: pointer; /* Indicate clickable */
         }
         .checklist-item.completed {
             color: #6b7280;
@@ -139,12 +140,12 @@
             1: {
                 goal: 'Establish the foundational environment and core operating system knowledge essential for all subsequent offensive security endeavors.',
                 checklist: [
-                    'Install virtualization software (VirtualBox/VMware)',
-                    'Install Kali Linux as a VM',
-                    'Learn fundamental Linux commands (`ls`, `cd`, `pwd`, `cp`, `mv`, `rm`)',
-                    'Understand file permissions (`chmod`, `chown`)',
-                    'Practice basic user management (`adduser`, `passwd`)',
-                    'Learn basic Bash scripting concepts',
+                    { text: 'Install virtualization software (VirtualBox/VMware)', completed: false },
+                    { text: 'Install Kali Linux as a VM', completed: false },
+                    { text: 'Learn fundamental Linux commands (`ls`, `cd`, `pwd`, `cp`, `mv`, `rm`)', completed: false },
+                    { text: 'Understand file permissions (`chmod`, `chown`)', completed: false },
+                    { text: 'Practice basic user management (`adduser`, `passwd`)', completed: false },
+                    { text: 'Learn basic Bash scripting concepts', completed: false },
                 ],
                 resources: ['TryHackMe: Linux Fundamentals', 'Book: Linux Basics for Hackers', 'Course: HackingHub\'s Linux For Hackers'],
                 project: 'Develop a simple Bash or Python script to automate a basic system information gathering task on your Kali Linux VM.'
@@ -152,12 +153,12 @@
             2: {
                 goal: 'Gain an in-depth understanding of how data flows across networks to effectively identify weaknesses, conduct reconnaissance, and intercept communications.',
                 checklist: [
-                    'Understand the OSI model and the TCP/IP stack',
-                    'Learn common network protocols (HTTP, HTTPS, DNS, TCP, UDP)',
-                    'Familiarize yourself with IP addressing and subnetting',
-                    'Learn essential network utilities (`ping`, `traceroute`, `netstat`)',
-                    'Install and learn the basics of Wireshark for packet analysis',
-                    'Understand client-server communication',
+                    { text: 'Understand the OSI model and the TCP/IP stack', completed: false },
+                    { text: 'Learn common network protocols (HTTP, HTTPS, DNS, TCP, UDP)', completed: false },
+                    { text: 'Familiarize yourself with IP addressing and subnetting', completed: false },
+                    { text: 'Learn essential network utilities (`ping`, `traceroute`, `netstat`)', completed: false },
+                    { text: 'Install and learn the basics of Wireshark for packet analysis', completed: false },
+                    { text: 'Understand client-server communication', completed: false },
                 ],
                 resources: ['TryHackMe: Introductory Networking', 'Wireshark Official Documentation', 'Online Tutorials: TCP/IP Fundamentals'],
                 project: 'Use Wireshark to capture and analyze traffic between your Kali VM and a Metasploitable 2 VM. Identify protocols, IPs, and ports.'
@@ -165,12 +166,12 @@
             3: {
                 goal: 'Understand how web technologies function and learn the most common and critical web vulnerabilities as outlined by the OWASP Top 10.',
                 checklist: [
-                    'Understand web app principles (client-server, HTTP methods)',
-                    'Familiarize with basic HTML, CSS, and JavaScript',
-                    'Learn about common web servers (Apache, Nginx) and databases',
-                    'Introduce yourself to the OWASP Top 10 2021 list',
-                    'Understand basics of: Broken Access Control, Cryptographic Failures, Injection (SQLi, XSS)',
-                    'Learn about Security Misconfiguration and SSRF',
+                    { text: 'Understand web app principles (client-server, HTTP methods)', completed: false },
+                    { text: 'Familiarize with basic HTML, CSS, and JavaScript', completed: false },
+                    { text: 'Learn about common web servers (Apache, Nginx) and databases', completed: false },
+                    { text: 'Introduce yourself to the OWASP Top 10 2021 list', completed: false },
+                    { text: 'Understand basics of: Broken Access Control, Cryptographic Failures, Injection (SQLi, XSS)', completed: false },
+                    { text: 'Learn about Security Misconfiguration and SSRF', completed: false },
                 ],
                 resources: ['TryHackMe: Web Fundamentals, OWASP Juice Shop', 'PortSwigger Web Security Academy', 'OWASP Top 10 Official Guide'],
                 project: 'Explore the OWASP Juice Shop. Attempt to manually identify instances of basic OWASP Top 10 vulnerabilities like XSS or SQLi.'
@@ -178,12 +179,12 @@
             4: {
                 goal: 'Develop scripting skills to automate repetitive tasks, parse large datasets, and create custom tools or proof-of-concept exploits.',
                 checklist: [
-                    'Review Bash scripting basics (variables, control flow)',
-                    'Review Python basics (data types, functions, modules)',
-                    'Write scripts for file manipulation and text processing',
-                    'Make basic network requests in Python (e.g., `requests` library)',
-                    'Practice parsing command-line arguments and script output',
-                    'Automate simple reconnaissance tasks',
+                    { text: 'Review Bash scripting basics (variables, control flow)', completed: false },
+                    { text: 'Review Python basics (data types, functions, modules)', completed: false },
+                    { text: 'Write scripts for file manipulation and text processing', completed: false },
+                    { text: 'Make basic network requests in Python (e.g., `requests` library)', completed: false },
+                    { text: 'Practice parsing command-line arguments and script output', completed: false },
+                    { text: 'Automate simple reconnaissance tasks', completed: false },
                 ],
                 resources: ['TryHackMe: Python Basics, Bash Scripting', 'Book: Python Crash Course', 'Online Tutorials: FreeCodeCamp, Real Python'],
                 project: 'Create a Python script that takes a URL as input, fetches its HTML content, and then extracts all link tags, simulating a basic web crawler.'
@@ -191,12 +192,12 @@
             5: {
                 goal: 'Systematically gather information about a target using both passive (OSINT) and active (scanning) methods with industry-standard tools.',
                 checklist: [
-                    'Understand Passive vs. Active Reconnaissance',
-                    'Master Nmap for host discovery, port scanning (`-sS`, `-sU`)',
-                    'Use Nmap for service/version detection (`-sV`) and OS detection (`-O`)',
-                    'Run Nmap Scripting Engine (NSE) scripts (`--script vuln`)',
-                    'Practice OSINT with Google Dorking and Shodan',
-                    'Understand DNS enumeration with `dig` or `DNSrecon`',
+                    { text: 'Understand Passive vs. Active Reconnaissance', completed: false },
+                    { text: 'Master Nmap for host discovery, port scanning (`-sS`, `-sU`)', completed: false },
+                    { text: 'Use Nmap for service/version detection (`-sV`) and OS detection (`-O`)', completed: false },
+                    { text: 'Run Nmap Scripting Engine (NSE) scripts (`--script vuln`)', completed: false },
+                    { text: 'Practice OSINT with Google Dorking and Shodan', completed: false },
+                    { text: 'Understand DNS enumeration with `dig` or `DNSrecon`', completed: false },
                 ],
                 resources: ['TryHackMe: Nmap, Passive Reconnaissance', 'Nmap Official Documentation', 'Online Guides on OSINT techniques'],
                 project: 'Perform comprehensive reconnaissance on Metasploitable 2 using Nmap and OSINT techniques. Document all open ports, services, and versions.'
@@ -204,12 +205,12 @@
             6: {
                 goal: 'Learn to leverage known vulnerabilities to gain access to target systems using the Metasploit Framework.',
                 checklist: [
-                    'Understand CVEs and how to use Exploit-DB',
-                    'Launch and navigate the Metasploit Framework console (`msfconsole`)',
-                    'Learn essential commands (`search`, `use`, `set`, `run`/`exploit`)',
-                    'Understand Metasploit modules (exploits, payloads, auxiliary)',
-                    'Practice selecting appropriate exploits and payloads for a target',
-                    'Understand exploit reliability rankings',
+                    { text: 'Understand CVEs and how to use Exploit-DB', completed: false },
+                    { text: 'Launch and navigate the Metasploit Framework console (`msfconsole`)', completed: false },
+                    { text: 'Learn essential commands (`search`, `use`, `set`, `run`/`exploit`)', completed: false },
+                    { text: 'Understand Metasploit modules (exploits, payloads, auxiliary)', completed: false },
+                    { text: 'Practice selecting appropriate exploits and payloads for a target', completed: false },
+                    { text: 'Understand exploit reliability rankings', completed: false },
                 ],
                 resources: ['TryHackMe: Metasploit', 'Hack The Box: Metasploit Framework module', 'VulnHub: Metasploitable 2', 'Rapid7 Metasploit Documentation'],
                 project: 'Using Metasploit, exploit at least two known vulnerabilities on the Metasploitable 2 VM to gain an initial shell on the target system.'
@@ -217,12 +218,12 @@
             7: {
                 goal: 'Master the core functionalities of Burp Suite to effectively identify and exploit web vulnerabilities.',
                 checklist: [
-                    'Install and configure Burp Suite Community Edition with a browser',
-                    'Intercept and forward HTTP/S requests in Burp Proxy',
-                    'Use Burp Repeater to manually modify and resend requests',
-                    'Use Burp Intruder for automated attacks like fuzzing',
-                    'Familiarize with Burp Decoder and Comparer',
-                    'Learn to set and manage the target scope',
+                    { text: 'Install and configure Burp Suite Community Edition with a browser', completed: false },
+                    { text: 'Intercept and forward HTTP/S requests in Burp Proxy', completed: false },
+                    { text: 'Use Burp Repeater to manually modify and resend requests', completed: false },
+                    { text: 'Use Burp Intruder for automated attacks like fuzzing', completed: false },
+                    { text: 'Familiarize with Burp Decoder and Comparer', completed: false },
+                    { text: 'Learn to set and manage the target scope', completed: false },
                 ],
                 resources: ['PortSwigger Web Security Academy', 'Online Tutorials: Burp Suite Community Edition tutorial'],
                 project: 'Use Burp Suite and PortSwigger labs to intercept a login, test for XSS with Repeater, and test for SQLi.'
@@ -230,12 +231,12 @@
             8: {
                 goal: 'Learn the crucial process of elevating permissions on a compromised system, moving from a low-privileged user to root or Administrator.',
                 checklist: [
-                    'Understand the concept of user privileges and escalation',
-                    'Learn Linux privilege escalation: Kernel exploits, SUID/SGID abuse, SUDO misconfigs',
-                    'Explore other Linux vectors: Cron jobs, weak file permissions',
-                    'Learn Windows privilege escalation: Kernel exploits, vulnerable software, weak service configs',
-                    'Understand credential exploitation and tools like Mimikatz',
-                    'Distinguish between vertical and horizontal privilege escalation',
+                    { text: 'Understand the concept of user privileges and escalation', completed: false },
+                    { text: 'Learn Linux privilege escalation: Kernel exploits, SUID/SGID abuse, SUDO misconfigs', completed: false },
+                    { text: 'Explore other Linux vectors: Cron jobs, weak file permissions', completed: false },
+                    { text: 'Learn Windows privilege escalation: Kernel exploits, vulnerable software, weak service configs', completed: false },
+                    { text: 'Understand credential exploitation and tools like Mimikatz', completed: false },
+                    { text: 'Distinguish between vertical and horizontal privilege escalation', completed: false },
                 ],
                 resources: ['TryHackMe: Privilege Escalation rooms', 'Online Guides: Linux/Windows Privilege Escalation', 'Vulnerable VMs: HTB Starting Point, VulnHub'],
                 project: 'On a vulnerable VM, gain initial low-level access, then identify and exploit a privilege escalation vulnerability to gain root/administrator privileges.'
@@ -243,12 +244,12 @@
             9: {
                 goal: 'Apply foundational skills in realistic scenarios, develop problem-solving abilities, and learn to chain vulnerabilities.',
                 checklist: [
-                    'Register on TryHackMe and Hack The Box',
-                    'Focus on "Easy CTF" rooms and "Starting Point" machines',
-                    'Systematically follow a pentesting methodology for each CTF',
-                    'Perform reconnaissance, vulnerability identification, and exploitation',
-                    'Practice privilege escalation to capture user and root flags',
-                    'Document your entire process for each completed CTF',
+                    { text: 'Register on TryHackMe and Hack The Box', completed: false },
+                    { text: 'Focus on "Easy CTF" rooms and "Starting Point" machines', completed: false },
+                    { text: 'Systematically follow a pentesting methodology for each CTF', completed: false },
+                    { text: 'Perform reconnaissance, vulnerability identification, and exploitation', completed: false },
+                    { text: 'Practice privilege escalation to capture user and root flags', completed: false },
+                    { text: 'Document your entire process for each completed CTF', completed: false },
                 ],
                 resources: ['TryHackMe: Easy CTF rooms', 'Hack The Box: Starting Point machines', 'Community CTF write-ups for post-attempt analysis'],
                 project: 'Complete at least 2-3 "Easy" CTF rooms/machines per week. For each, create a detailed write-up documenting your entire process from recon to root.'
@@ -256,12 +257,12 @@
             13: {
                 goal: 'Progress to more complex challenges and begin learning Active Directory (AD) security, a critical component of most enterprise networks.',
                 checklist: [
-                    'Progress to "Medium CTF" difficulty on TryHackMe/Hack The Box',
-                    'Understand Active Directory concepts (Domain Controllers, Users, Groups, Kerberos)',
-                    'Learn basic AD enumeration techniques (user/group enumeration)',
-                    'Familiarize with common AD attacks: Password spraying, Kerberoasting',
-                    'Understand lateral movement concepts within an AD environment',
-                    'Learn to use BloodHound for AD enumeration and attack path visualization',
+                    { text: 'Progress to "Medium CTF" difficulty on TryHackMe/Hack The Box', completed: false },
+                    { text: 'Understand Active Directory concepts (Domain Controllers, Users, Groups, Kerberos)', completed: false },
+                    { text: 'Learn basic AD enumeration techniques (user/group enumeration)', completed: false },
+                    { text: 'Familiarize with common AD attacks: Password spraying, Kerberoasting', completed: false },
+                    { text: 'Understand lateral movement concepts within an AD environment', completed: false },
+                    { text: 'Learn to use BloodHound for AD enumeration and attack path visualization', completed: false },
                 ],
                 resources: ['TryHackMe: "Attacktive Directory", "Post-Exploitation Basics"', 'VulnHub AD VMs', 'GitHub repos for AD pentesting'],
                 project: 'In a vulnerable AD lab, use tools like BloodHound to map attack paths and work towards gaining domain administrator privileges. Document your process.'
@@ -269,11 +270,11 @@
             17: {
                 goal: 'Understand the bug bounty ecosystem, set realistic expectations, and internalize the ethical boundaries and procedures required for success.',
                 checklist: [
-                    'Understand the bug bounty ecosystem (HackerOne, Bugcrowd)',
-                    'Internalize the "Bug Bounty Mindset" (patience, persistence, learning over earning)',
-                    'Learn to read and comprehend program scope and rules of engagement',
-                    'Familiarize with vulnerability rating taxonomies (VRT)',
-                    'Understand the importance of professional report writing',
+                    { text: 'Understand the bug bounty ecosystem (HackerOne, Bugcrowd)', completed: false },
+                    { text: 'Internalize the "Bug Bounty Mindset" (patience, persistence, learning over earning)', completed: false },
+                    { text: 'Learn to read and comprehend program scope and rules of engagement', completed: false },
+                    { text: 'Familiarize with vulnerability rating taxonomies (VRT)', completed: false },
+                    { text: 'Understand the importance of professional report writing', completed: false },
                 ],
                 resources: ['Bug Bounty Platforms: HackerOne, Bugcrowd', 'GitHub: Guide to Bug Bounty Hunting', 'Blogs from Intigriti and other platforms'],
                 project: 'Select 2-3 public bug bounty programs. Read their policies and scope in detail. Choose one program as your initial target for the coming weeks.'
@@ -281,11 +282,11 @@
             18: {
                 goal: 'Actively hunt for vulnerabilities on live web applications, applying knowledge of the OWASP Top 10 and proficiency with Burp Suite.',
                 checklist: [
-                    'Apply web application testing skills to live bug bounty targets',
-                    'Focus on common vulnerabilities: Broken Access Control, SQLi, XSS, SSRF, IDOR',
-                    'Utilize Burp Suite for manual and semi-automated testing',
-                    'Develop and adhere to a structured testing strategy (e.g., OWASP WSTG)',
-                    'Look for "unfashionable flaws" and business logic errors',
+                    { text: 'Apply web application testing skills to live bug bounty targets', completed: false },
+                    { text: 'Focus on common vulnerabilities: Broken Access Control, SQLi, XSS, SSRF, IDOR', completed: false },
+                    { text: 'Utilize Burp Suite for manual and semi-automated testing', completed: false },
+                    { text: 'Develop and adhere to a structured testing strategy (e.g., OWASP WSTG)', completed: false },
+                    { text: 'Look for "unfashionable flaws" and business logic errors', completed: false },
                 ],
                 resources: ['PortSwigger Web Security Academy (Advanced Labs)', 'Intigriti Blog', 'Public bug bounty write-ups of successful findings'],
                 project: 'Actively hunt on your chosen public program. Focus on one or two specific features or vulnerability types to ensure deep testing. Aim to submit one valid report.'
@@ -293,11 +294,11 @@
             21: {
                 goal: 'Refine bug bounty skills, master the art of vulnerability reporting, and explore broader attack surfaces beyond web applications.',
                 checklist: [
-                    'Explore other bug bounty scopes if available (mobile, APIs, etc.)',
-                    'Master high-quality vulnerability reporting (clear title, reproduction steps, evidence, impact)',
-                    'Internalize the "quality over quantity" principle',
-                    'Learn from duplicate submissions and triage feedback',
-                    'Think creatively to find "evasive bugs" by testing unexpected actions',
+                    { text: 'Explore other bug bounty scopes if available (mobile, APIs, etc.)', completed: false },
+                    { text: 'Master high-quality vulnerability reporting (clear title, reproduction steps, evidence, impact)', completed: false },
+                    { text: 'Internalize the "quality over quantity" principle', completed: false },
+                    { text: 'Learn from duplicate submissions and triage feedback', completed: false },
+                    { text: 'Think creatively to find "evasive bugs" by testing unexpected actions', completed: false },
                 ],
                 resources: ['Bugcrowd: "Your Guide to Hacking with Bugcrowd"', 'HackerOne Blog for report examples', 'OWASP Mobile Security Testing Guide (MSTG)'],
                 project: 'Submit at least one well-documented, valid bug report. Focus on making the report professional, clear, and impactful. Engage with triage feedback to improve.'
@@ -305,11 +306,11 @@
             25: {
                 goal: 'Understand the formal structures and methodologies governing professional penetration testing to ensure consistency and quality in assessments.',
                 checklist: [
-                    'Study the Penetration Testing Execution Standard (PTES) in detail',
-                    'Familiarize with the OWASP Web Security Testing Guide (WSTG)',
-                    'Understand frameworks like NIST SP 800-115 and MITRE ATT&CK',
-                    'Learn the Cyber Kill Chain model',
-                    'Review best practices for scoping a penetration test',
+                    { text: 'Study the Penetration Testing Execution Standard (PTES) in detail', completed: false },
+                    { text: 'Familiarize with the OWASP Web Security Testing Guide (WSTG)', completed: false },
+                    { text: 'Understand frameworks like NIST SP 800-115 and MITRE ATT&CK', completed: false },
+                    { text: 'Learn the Cyber Kill Chain model', completed: false },
+                    { text: 'Review best practices for scoping a penetration test', completed: false },
                 ],
                 resources: ['PTES Official Website', 'OWASP WSTG', 'NIST SP 800-115', 'MITRE ATT&CK Framework'],
                 project: 'Choose a hypothetical scenario (e.g., a web app) and outline a penetration test plan following the PTES phases, detailing activities and tools for each phase.'
@@ -317,12 +318,12 @@
             26: {
                 goal: 'Explore more sophisticated exploitation techniques and the critical post-exploitation phase to maintain access and extract valuable information.',
                 checklist: [
-                    'Explore advanced exploits: CSRF, SSRF, buffer overflows',
-                    'Understand post-exploitation objectives (persistence, looting, pivoting)',
-                    'Learn persistence techniques (scheduled tasks, backdoors)',
-                    'Familiarize with data exfiltration and covering tracks',
-                    'Learn lateral movement techniques in AD environments',
-                    'Explore post-exploitation tools (Mimikatz, PowerSploit, BloodHound)',
+                    { text: 'Explore advanced exploits: CSRF, SSRF, buffer overflows', completed: false },
+                    { text: 'Understand post-exploitation objectives (persistence, looting, pivoting)', completed: false },
+                    { text: 'Learn persistence techniques (scheduled tasks, backdoors)', completed: false },
+                    { text: 'Familiarize with data exfiltration and covering tracks', completed: false },
+                    { text: 'Learn lateral movement techniques in AD environments', completed: false },
+                    { text: 'Explore post-exploitation tools (Mimikatz, PowerSploit, BloodHound)', completed: false },
                 ],
                 resources: ['OffSec PEN-200 Course Content', 'TryHackMe/HTB "Medium" to "Hard" machines', 'GitHub repos for post-exploitation tools'],
                 project: 'On a challenging VM, gain initial access, then establish persistence, perform detailed enumeration for sensitive data, and attempt to exfiltrate a simulated file.'
@@ -330,12 +331,12 @@
             27: {
                 goal: 'Gain an understanding of the unique vulnerabilities and testing methodologies associated with cloud platforms and their exposed APIs.',
                 checklist: [
-                    'Understand cloud concepts (IaaS, PaaS, SaaS) and providers (AWS, Azure, GCP)',
-                    'Learn common cloud security risks (misconfigurations, insecure APIs, IAM issues)',
-                    'Familiarize with basic cloud security controls',
-                    'Understand API architecture (REST, SOAP) and vulnerabilities (OWASP API Top 10)',
-                    'Use Burp Suite for API testing',
-                    'Explore cloud-specific attack vectors (e.g., misconfigured S3 buckets)',
+                    { text: 'Understand cloud concepts (IaaS, PaaS, SaaS) and providers (AWS, Azure, GCP)', completed: false },
+                    { text: 'Learn common cloud security risks (misconfigurations, insecure APIs, IAM issues)', completed: false },
+                    { text: 'Familiarize with basic cloud security controls', completed: false },
+                    { text: 'Understand API architecture (REST, SOAP) and vulnerabilities (OWASP API Top 10)', completed: false },
+                    { text: 'Use Burp Suite for API testing', completed: false },
+                    { text: 'Explore cloud-specific attack vectors (e.g., misconfigured S3 buckets)', completed: false },
                 ],
                 resources: ['TryHackMe AWS/Azure rooms', 'OWASP API Security Top 10', 'Cloud provider security documentation'],
                 project: 'Simulate a cloud vulnerability by intentionally misconfiguring a service in a free-tier account. Separately, test a deliberately vulnerable public API with Burp Suite.'
@@ -343,12 +344,12 @@
             28: {
                 goal: 'Expand the scope of offensive security to include wireless network vulnerabilities and the human element through social engineering.',
                 checklist: [
-                    'Understand wireless protocols (WEP, WPA/WPA2) and attacks (handshake capture, deauth)',
-                    'Familiarize with Aircrack-ng suite for wireless auditing',
-                    'Understand legal/ethical considerations of wireless testing',
-                    'Learn principles of social engineering (phishing, vishing, pretexting)',
-                    'Familiarize with the Social Engineering Toolkit (SET)',
-                    'Understand how to design and execute simulated social engineering attacks',
+                    { text: 'Understand wireless protocols (WEP, WPA/WPA2) and attacks (handshake capture, deauth)', completed: false },
+                    { text: 'Familiarize with Aircrack-ng suite for wireless auditing', completed: false },
+                    { text: 'Understand legal/ethical considerations of wireless testing', completed: false },
+                    { text: 'Learn principles of social engineering (phishing, vishing, pretexting)', completed: false },
+                    { text: 'Familiarize with the Social Engineering Toolkit (SET)', completed: false },
+                    { text: 'Understand how to design and execute simulated social engineering attacks', completed: false },
                 ],
                 resources: ['TryHackMe: Wifi Hacking 101', 'Online tutorials for Aircrack-ng and SET', 'Books/Articles on social engineering tactics'],
                 project: 'Set up an isolated wireless lab to practice capturing handshakes. Design a harmless, simulated phishing email targeting yourself (or a friend with permission) to analyze its effectiveness.'
@@ -356,12 +357,12 @@
             29: {
                 goal: 'Transform raw technical findings into professional, impactful reports and effectively communicate those findings to diverse audiences.',
                 checklist: [
-                    'Review the PTES "Reporting" phase',
-                    'Understand components: Executive Summary, Technical Findings, Methodology, Scope',
-                    'Learn to articulate vulnerability impact in business terms',
-                    'Practice structuring reports for clarity and persuasiveness',
-                    'Develop strong communication skills for presenting findings',
-                    'Understand the importance of validation and follow-up',
+                    { text: 'Review the PTES "Reporting" phase', completed: false },
+                    { text: 'Understand components: Executive Summary, Technical Findings, Methodology, Scope', completed: false },
+                    { text: 'Learn to articulate vulnerability impact in business terms', completed: false },
+                    { text: 'Practice structuring reports for clarity and persuasiveness', completed: false },
+                    { text: 'Develop strong communication skills for presenting findings', completed: false },
+                    { text: 'Understand the importance of validation and follow-up', completed: false },
                 ],
                 resources: ['PTES Reporting Standard', 'Sample Penetration Test Reports (online search)', 'Successful public bug bounty reports'],
                 project: 'Transform a comprehensive CTF write-up into a professional penetration test report following PTES guidelines. Practice presenting the key findings.'
@@ -369,12 +370,12 @@
             30: {
                 goal: 'Formalize your skills through relevant certifications and prepare for the job market by building a resume and practicing for interviews.',
                 checklist: [
-                    'Research entry-level certifications (eJPTv2, PNPT, CEH)',
-                    'Begin studying for your chosen certification',
-                    'Develop a professional resume tailored for pentesting roles',
-                    'Create a portfolio of your best CTF write-ups/bug reports',
-                    'Practice common cybersecurity interview questions (technical & behavioral)',
-                    'Network with professionals on LinkedIn and other platforms',
+                    { text: 'Research entry-level certifications (eJPTv2, PNPT, CEH)', completed: false },
+                    { text: 'Begin studying for your chosen certification', completed: false },
+                    { text: 'Develop a professional resume tailored for pentesting roles', completed: false },
+                    { text: 'Create a portfolio of your best CTF write-ups/bug reports', completed: false },
+                    { text: 'Practice common cybersecurity interview questions (technical & behavioral)', completed: false },
+                    { text: 'Network with professionals on LinkedIn and other platforms', completed: false },
                 ],
                 resources: ['Official certification websites', 'Resume/Portfolio templates', 'LinkedIn Learning for interview prep', 'Cybersecurity job boards'],
                 project: 'Draft your professional resume and compile a digital portfolio. Complete a significant portion of the study material for your chosen certification.'
@@ -382,12 +383,12 @@
             31: {
                 goal: 'Engage in high-intensity, integrated practice by tackling complex challenges and simulating real-world penetration testing engagements.',
                 checklist: [
-                    'Tackle "Hard CTF" machines on Hack The Box/TryHackMe',
-                    'Focus on machines with AD, cloud, or advanced web flaws',
-                    'Simulate a full penetration test from scoping to reporting',
-                    'Conduct thorough recon, exploitation, and post-exploitation',
-                    'Write a comprehensive report for your mock engagement',
-                    'Seek peer review/feedback on your report if possible',
+                    { text: 'Tackle "Hard CTF" machines on Hack The Box/TryHackMe', completed: false },
+                    { text: 'Focus on machines with AD, cloud, or advanced web flaws', completed: false },
+                    { text: 'Simulate a full penetration test from scoping to reporting', completed: false },
+                    { text: 'Conduct thorough recon, exploitation, and post-exploitation', completed: false },
+                    { text: 'Write a comprehensive report for your mock engagement', completed: false },
+                    { text: 'Seek peer review/feedback on your report if possible', completed: false },
                 ],
                 resources: ['Hack The Box/TryHackMe "Hard" machines', 'Complex VulnHub VMs', 'PTES Documentation as a guide'],
                 project: 'Complete at least one "Hard" CTF. Conduct one full mock penetration test on a dedicated lab and produce a complete, professional report.'
@@ -395,12 +396,12 @@
             32: {
                 goal: 'Solidify a commitment to continuous learning and actively pursue job opportunities, leveraging the portfolio and skills built throughout the roadmap.',
                 checklist: [
-                    'Develop a continuous learning strategy (subscribe to news, blogs, podcasts)',
-                    'Follow leading security researchers on social media',
-                    'Identify areas for future specialization (mobile, IoT, red teaming)',
-                    'Consider advanced certifications (OSCP, OSWE) as long-term goals',
-                    'Actively apply for entry-level penetration tester positions',
-                    'Tailor your resume/cover letter for each application and prepare for interviews',
+                    { text: 'Develop a continuous learning strategy (subscribe to news, blogs, podcasts)', completed: false },
+                    { text: 'Follow leading security researchers on social media', completed: false },
+                    { text: 'Identify areas for future specialization (mobile, IoT, red teaming)', completed: false },
+                    { text: 'Consider advanced certifications (OSCP, OSWE) as long-term goals', completed: false },
+                    { text: 'Actively apply for entry-level penetration tester positions', completed: false },
+                    { text: 'Tailor your resume/cover letter for each application and prepare for interviews', completed: false },
                 ],
                 resources: ['Industry news outlets (The Hacker News, Dark Reading)', 'Advanced certification websites (Offensive Security)', 'Job search platforms (LinkedIn)'],
                 project: 'Create a personalized 6-12 month continuous learning roadmap. Apply to at least 5-10 relevant entry-level penetration testing positions.'
@@ -495,18 +496,40 @@
             });
         }
 
+        // Saves the checklist state for a specific week to local storage
+        function saveChecklistState(weekNum, checklist) {
+            localStorage.setItem(`checklist_week_${weekNum}`, JSON.stringify(checklist));
+        }
+
+        // Loads the checklist state for a specific week from local storage
+        function loadChecklistState(weekNum) {
+            const savedState = localStorage.getItem(`checklist_week_${weekNum}`);
+            return savedState ? JSON.parse(savedState) : null;
+        }
+
         function renderWeekDetail(weekNum) {
-            const week = weekDetails[weekNum];
+            let week = weekDetails[weekNum];
             const originalWeekData = Object.values(roadmapData).flatMap(p => p.weeks).find(w => w.week == weekNum);
             if (!week || !originalWeekData) {
                 detailView.innerHTML = `<p class="text-center text-gray-500">Select a week to see details.</p>`;
                  detailView.classList.add('opacity-0');
                 return;
             }
+
+            // Load saved checklist state, or use default if none exists
+            const savedChecklist = loadChecklistState(weekNum);
+            if (savedChecklist) {
+                // Merge saved state with default structure, ensuring all items are present
+                week.checklist = week.checklist.map(defaultItem => {
+                    const savedItem = savedChecklist.find(sItem => sItem.text === defaultItem.text);
+                    return savedItem ? { ...defaultItem, completed: savedItem.completed } : defaultItem;
+                });
+            }
             
             let checklistHTML = '<ul class="space-y-2">';
-            week.checklist.forEach(item => {
-                checklistHTML += `<li class="checklist-item flex items-center"><span class="mr-2 text-teal-500">✓</span>${item}</li>`;
+            week.checklist.forEach((item, index) => {
+                const completedClass = item.completed ? 'completed' : '';
+                checklistHTML += `<li class="checklist-item flex items-center ${completedClass}" data-index="${index}"><span class="mr-2 text-teal-500">✓</span>${item.text}</li>`;
             });
             checklistHTML += '</ul>';
 
@@ -548,9 +571,13 @@
             
             detailView.classList.remove('opacity-0');
             
-            document.querySelectorAll('.checklist-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    item.classList.toggle('completed');
+            // Add event listeners for checklist items
+            document.querySelectorAll('.checklist-item').forEach(itemElement => {
+                itemElement.addEventListener('click', () => {
+                    const index = parseInt(itemElement.dataset.index);
+                    week.checklist[index].completed = !week.checklist[index].completed; // Toggle state in data
+                    itemElement.classList.toggle('completed'); // Toggle class in DOM
+                    saveChecklistState(weekNum, week.checklist); // Save updated state
                 });
             });
 
@@ -691,7 +718,7 @@
             const tabKey = e.target.dataset.tab;
             if (tabKey && tabKey !== activeTab) {
                 activeTab = tabKey;
-                activeWeek = null;
+                activeWeek = null; // Clear active week selection when changing tabs
                 if (tabKey.startsWith('phase')) {
                     renderWeekCards(tabKey);
                     detailView.innerHTML = `<p class="text-center text-gray-500 p-8">Select a week to see details.</p>`;
@@ -708,6 +735,17 @@
         tabsContainer.addEventListener('click', handleTabClick);
 
         function init() {
+            // Initialize weekDetails with saved states on load
+            for (const weekNum in weekDetails) {
+                const savedState = loadChecklistState(weekNum);
+                if (savedState) {
+                    weekDetails[weekNum].checklist = weekDetails[weekNum].checklist.map(defaultItem => {
+                        const savedItem = savedState.find(sItem => sItem.text === defaultItem.text);
+                        return savedItem ? { ...defaultItem, completed: savedItem.completed } : defaultItem;
+                    });
+                }
+            }
+
             renderTabs();
             renderWeekCards(activeTab);
             detailView.innerHTML = `<p class="text-center text-gray-500 p-8">Select a week above to see details.</p>`;
